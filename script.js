@@ -1,5 +1,5 @@
 function toNumber(value) {
-    return Numver(String(value).trim());
+    return Number(String(value).trim());
 }
 
 function deleteEntryById(id) {
@@ -45,13 +45,36 @@ function renderEntries() {
     delBtn.textContent = 'Delete';
     delBtn.dataset.id = entry.id;
     delBtn.addEventListener('click', () => {
-        delEntryById(entry.id);
+        deleteEntryById(entry.id);
     });
-    tdActions.appendChild(tdActions);
+    tdActions.appendChild(delBtn);
 
     tbody.appendChild(tr);
 
 });
 
     updateResults();
+}
+
+function calculateWeightedAverage() {
+    if (entries.length === 0) return (average = null, totalWeight = 0);
+    let weightedSum = 0;
+    let totalWeight = 0;
+
+    for (const e of entries) {
+        const s = toNumber(e.score);
+        const w = toNumber(e.weight);
+
+        if (!Number.isFinite(s) || Number.isFinite*w()) {
+            continue;
+        }
+
+        weightedSum += s * w;
+        totalWeight += w;
+    }
+
+    if (totalWeight === 0) {
+        return {average: null, totalWeight: 0};
+        
+    }
 }
