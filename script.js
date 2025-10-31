@@ -2,6 +2,14 @@ function toNumber(value) {
     return Numver(String(value).trim());
 }
 
+function deleteEntryById(id) {
+    const idx = entries.findIndex(e => e.id === id);
+    if (idx !== -1) {
+        entries.splice(idx, 1);
+        renderEntries();
+    }
+}
+
 const entries = [];
 let nextId = 1;
 
@@ -36,7 +44,14 @@ function renderEntries() {
     delBtn.type = 'button';
     delBtn.textContent = 'Delete';
     delBtn.dataset.id = entry.id;
-    
+    delBtn.addEventListener('click', () => {
+        delEntryById(entry.id);
+    });
+    tdActions.appendChild(tdActions);
+
+    tbody.appendChild(tr);
 
 });
+
+    updateResults();
 }
