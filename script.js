@@ -22,5 +22,21 @@ function renderEntries() {
     tr.appendChild(tdName);
 
     const tdScore = document.createElement('td');
+    tdScore.textContent = Number(entry.score).toFixed(2);
+    tr.appendChild(tdScore);
+
+    const tdWeight = document.createElement('td');
+    tdWeight.textContent = Number(entry.weight).toFixed(2);
+    tr.appendChild(tdWeight);
+
+    //im gonna try to add a delete button
+
+    const tdActions = document.createElement('td');
+    const delBtn = document.createElement('button');
+    delBtn.type = 'button';
+    delBtn.textContent = 'Delete';
+    delBtn.dataset.id = entry.id;
+    
+
 });
 }
