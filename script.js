@@ -75,6 +75,20 @@ function calculateWeightedAverage() {
 
     if (totalWeight === 0) {
         return {average: null, totalWeight: 0};
-        
     }
+
+    const average= weightedSum / totalWeight;
+    return { average, totalWeight };
+
+}
+
+function getLetterGrade(average) {
+    if (average === null) return '-';
+
+    if (average >= 90) return 'A';
+    if (average >= 80) return 'B';
+    if (average >= 70) return 'C';
+    if (average >= 60) return 'D';
+
+    return 'F';
 }
