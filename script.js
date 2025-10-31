@@ -10,17 +10,20 @@ function deleteEntryById(id) {
     }
 }
 
+const entries = [];
+let nextId = 1;
+
 function addEntryFromForm() {
     const nameInput = document.getElementById('assignment-name');
     const scoreInput = document.getElementById('score');
     const weightInput = document.getElementById('weight');
 
-    const name = String(nameINput.value || '').trim();
+    const name = String(nameInput.value || '').trim();
     const score = toNumber(scoreInput.value);
     const weight = toNumber(weightInput.value);
 
     if (!name) {
-        alert('Please enter and assignment name.');
+        alert('Please enter an assignment name.');
         nameInput.focus();
         return;
     }
@@ -70,8 +73,7 @@ function updateResults() {
     out.textContent = `${avgRounded}%-${letter}`;
 }
 
-const entries = [];
-let nextId = 1;
+
 
 function renderEntries() {
   const tbody = document.getElementById('entries-tbody');
@@ -117,7 +119,7 @@ function renderEntries() {
 }
 
 function calculateWeightedAverage() {
-    if (entries.length === 0) return (average = null, totalWeight = 0);
+    if (entries.length === 0) return {average: null, totalWeight: 0};
     let weightedSum = 0;
     let totalWeight = 0;
 
@@ -125,7 +127,7 @@ function calculateWeightedAverage() {
         const s = toNumber(e.score);
         const w = toNumber(e.weight);
 
-        if (!Number.isFinite(s) || Number.isFinite*w()) {
+        if (!Number.isFinite(s) || Number.isFinite(w)) {
             continue;
         }
 
