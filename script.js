@@ -70,10 +70,8 @@ function updateResults() {
 
     const avgRounded = Number(average).toFixed(2);
     const letter = getLetterGrade(average);
-    out.textContent = `${avgRounded}%-${letter}`;
+    out.textContent = `${avgRounded} (${letter})`;
 }
-
-
 
 function renderEntries() {
   const tbody = document.getElementById('entries-tbody');
@@ -99,8 +97,6 @@ function renderEntries() {
     tdWeight.textContent = Number(entry.weight).toFixed(2);
     tr.appendChild(tdWeight);
 
-    //im gonna try to add a delete button
-
     const tdActions = document.createElement('td');
     const delBtn = document.createElement('button');
     delBtn.type = 'button';
@@ -110,12 +106,12 @@ function renderEntries() {
         deleteEntryById(entry.id);
     });
     tdActions.appendChild(delBtn);
+    tr.appendChild(tdActions);
 
     tbody.appendChild(tr);
+  });
 
-});
-
-    updateResults();
+  updateResults();
 }
 
 function calculateWeightedAverage() {
@@ -127,7 +123,7 @@ function calculateWeightedAverage() {
         const s = toNumber(e.score);
         const w = toNumber(e.weight);
 
-        if (!Number.isFinite(s) || Number.isFinite(w)) {
+        if (!Number.isFinite(s) || !Number.isFinite(w)) {
             continue;
         }
 
@@ -141,7 +137,6 @@ function calculateWeightedAverage() {
 
     const average= weightedSum / totalWeight;
     return { average, totalWeight };
-
 }
 
 function getLetterGrade(average) {
@@ -154,3 +149,5 @@ function getLetterGrade(average) {
 
     return 'F';
 }
+
+document.getElementById('add-entry-button').addEventListener('click', addEntryFromForm);
