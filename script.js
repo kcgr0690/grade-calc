@@ -10,6 +10,25 @@ function deleteEntryById(id) {
     }
 }
 
+function updateResults() {
+    const out = document.getElementById('final-grade');
+    const { average, totalWeight} = calculateWeightedAverage();
+
+    if (entries.length === 0) {
+        out.textContent = 'No entries yet.'
+        return;
+    }
+
+    if (totalWeight === 0) {
+        out.textContent = 'Total weight is 0, please add weights greater than 0.';
+        return;
+    }
+
+    const avgRounded = Number(average).toFixed(2);
+    const letter = getLetterGrade(average);
+    out.textContent = `${avgRounded}%-${letter}`;
+}
+
 const entries = [];
 let nextId = 1;
 
