@@ -10,6 +10,33 @@ function deleteEntryById(id) {
     }
 }
 
+function addEntryFromForm() {
+    const nameInput = document.getElementById('assignment-name');
+    const scoreInput = document.getElementById('score');
+    const weightInput = document.getElementById('weight');
+
+    const name = String(nameINput.value || '').trim();
+    const score = toNumber(scoreInput.value);
+    const weight = toNumber(weightInput.value);
+
+    if (!name) {
+        alert('Please enter and assignment name.');
+        nameInput.focus();
+        return;
+    }
+
+    if (!Number.isFinite(score) || score < 0 || score > 100) {
+        alert('Please enter a valid score between 0 and 100.');
+        scoreInput.focus();
+        return;
+    }
+
+    if (!Number.isFinite(weight) || weight < 0 || weight > 100) {
+        alert('Please enter a valid weight (0-100).')
+        return;
+    }
+}
+
 function updateResults() {
     const out = document.getElementById('final-grade');
     const { average, totalWeight} = calculateWeightedAverage();
