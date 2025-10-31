@@ -35,6 +35,20 @@ function addEntryFromForm() {
         alert('Please enter a valid weight (0-100).')
         return;
     }
+
+    entries.push({
+        id: nextId++,
+        name,
+        score,
+        weight
+    });
+
+    nameInput.value = '';
+    scoreInput.value = '';
+    weightInput.value = '';
+    nameInput.focus();
+
+    renderEntries()
 }
 
 function updateResults() {
