@@ -137,3 +137,20 @@ table#entries-table button[edit]:hover {
 input[type=text] {
     background-color: #A6C2F3;
 }
+
+#what-if-calculator {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #6A8DE6;
+    border-radius: 8px;
+    border: 2px solid #2D4CA3;
+}
+
+#what-if-calculator label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color:#1F387A;
+}
+
