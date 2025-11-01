@@ -228,3 +228,16 @@ function calculateWhatIfScore() {
 document.getElementById('add-entry-button').addEventListener('click', handleFormSubmit);
 document.getElementById('remaining-weight').addEventListener('input', calculateWhatIfScore);
 window.addEventListener('load', calculateWhatIfScore);
+
+document.getElementById('grade-scale-header').addEventListener('click', function() {
+    const list = document.getElementById('grade-scale-list');
+    const arrow = document.getElementById('grade-scale-arrow');
+
+    if (list.style.display === 'none') {
+        list.style.display = 'block';
+        arrow.textContent = '▲';
+    } else {
+        list.style.display = 'none';
+        arrow.textContent = '▼';
+    }
+})
