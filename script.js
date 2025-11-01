@@ -277,3 +277,8 @@ document.getElementById('grade-scale-header').addEventListener('click', function
 })
 
 document.getElementById('clear-all-button').addEventListener('click', clearAllEntries)
+
+document.getElementById('target-grade-select').addEventListener('change', function() {
+    targetGrade = Number(this.value);
+    calculateWhatIfScore();
+})
