@@ -29,6 +29,7 @@ function clearAllEntries() {
 const entries = [];
 let nextId = 1;
 let editingId = null;
+let targetGrade = 90;
 
 function handleFormSubmit() {
     const nameInput = document.getElementById('assignment-name');
@@ -235,7 +236,6 @@ function calculateWhatIfScore() {
         return;
     }
 
-    const targetGrade = 90;
     const currentWeightedSum = currentAverage * currentWeight;
     const totalWeightWithRemaining = currentWeight + remainingWeight;
 
@@ -247,14 +247,16 @@ function calculateWhatIfScore() {
         ? ` Note: Total weight would be ${totalWeightWithRemaining.toFixed(2)}% (under 100%).`
         : '';
 
+
+    const targetLetter = getLetterGrade(targetGrade);
     if (neededScore > 100) {
-        resultElement.textContent = `You need ${neededScore.toFixed(2)}% (impossible - over 100%). An A may not be achievable.${weightWarning}`;
+        resultElement.textContent = `You need ${neededScore.toFixed(2)}% (impossible - over 100%). A ${targetLetter} may not be achievable.${weightWarning}`;
         resultElement.style.backgroundColor = '#ffcccc'
     } else if (neededScore <= 0) {
-        resultElement.textContent = `You already have an A! You can score as low as 0% and still maintain it.${weightWarning}`;
+        resultElement.textContent = `You already have an ${targetLetter}! You can score as low as 0% and still maintain it.${weightWarning}`;
         resultElement.style.backgroundColor = '#ccffcc';
     } else {
-        resultElement.textContent = `You need ${neededScore.toFixed(2)}% on the remaining ${remainingWeight}% weighted section to get an A (90%).${weightWarning}`;
+        resultElement.textContent = `You need at least an ${neededScore.toFixed(2)}% on the remaining ${remainingWeight}% weighted section to get an ${targetLetter}.${weightWarning}`;
         resultElement.style.backgroundColor = '#ffffcc';
     }
 }
