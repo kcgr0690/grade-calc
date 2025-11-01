@@ -95,13 +95,22 @@ function updateResults() {
     if (totalWeight === 0) {
         out.textContent = 'Total weight is 0, please add weights greater than 0.';
         return;
-    }
+    } 
 
     const avgRounded = Number(average).toFixed(2);
 
     const letter = getLetterGrade(average);
 
-    out.textContent = `${avgRounded} (${letter})`;
+    if (totalWeight > 100) {
+        out.textContent = `${avgRounded} (${letter}) - WARNING: Total weight is ${totalWeight.toFixed(2)}% (over 100%)`;
+        out.style.color = 'red';
+    } else if (totalWeight < 100) {
+        out.textContent = `${avgRounded} (${letter}) - WARNING: Total weight is ${totalWeight.toFixed(2)}% (under 100%)`;
+        out.style.color = 'orange';
+    } else {
+        out.textContent = `${avgRounded} (${letter}) - Total weight: ${totalWeight.toFixed(2)}%`;
+        out.style.color = 'black';
+    }
 }
 
 function renderEntries() {
@@ -229,14 +238,20 @@ function calculateWhatIfScore() {
 
     const neededScore = (targetGrade * totalWeightWithRemaining - currentWeightedSum) / remainingWeight;
 
+    const weightWarning = totalWeightWithRemaining > 100 
+        ? ` WARNING: Total weight would be ${totalWeightWithRemaining.toFixed(2)}% (over 100%)!` 
+        : totalWeightWithRemaining < 100 
+        ? ` Note: Total weight would be ${totalWeightWithRemaining.toFixed(2)}% (under 100%).`
+        : '';
+
     if (neededScore > 100) {
-        resultElement.textContent = `You need ${neededScore.toFixed(2)}% (impossible - over 100%). An A may not be achievable.`;
+        resultElement.textContent = `You need ${neededScore.toFixed(2)}% (impossible - over 100%). An A may not be achievable.${weightWarning}`;
         resultElement.style.backgroundColor = '#ffcccc'
     } else if (neededScore <= 0) {
-        resultElement.textContent = `You already have an A! You can score as low as 0% and still maintain it.`;
+        resultElement.textContent = `You already have an A! You can score as low as 0% and still maintain it.${weightWarning}`;
         resultElement.style.backgroundColor = '#ccffcc';
     } else {
-        resultElement.textContent = `You need ${neededScore.toFixed(2)}% on the remaining ${remainingWeight}% weighted section to get an A (90%)`;
+        resultElement.textContent = `You need ${neededScore.toFixed(2)}% on the remaining ${remainingWeight}% weighted section to get an A (90%).${weightWarning}`;
         resultElement.style.backgroundColor = '#ffffcc';
     }
 }
