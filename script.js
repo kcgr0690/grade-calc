@@ -113,9 +113,10 @@ function renderEntries() {
     tr.appendChild(tdWeight);
 
     const tdActions = document.createElement('td');
-    const editBtn = document.createElement('td');
+    const editBtn = document.createElement('button');
     editBtn.type = 'button';
     editBtn.textContent = 'Edit';
+    editBtn.classList.add('edit-btn');
     editBtn.dataset.id = entry.id;
     editBtn.addEventListener('click', () => {
         editingId = entry.id;

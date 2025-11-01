@@ -128,6 +128,7 @@ table#entries-table button[edit] {
     border: 1px solid #2D4CA3;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-right: 10px;
 }
 
 table#entries-table button[edit]:hover {
