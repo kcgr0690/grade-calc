@@ -144,6 +144,7 @@ function renderEntries() {
   });
 
   updateResults();
+  calculateWhatIfScore();
 }
 
 function calculateWeightedAverage() {
@@ -185,20 +186,19 @@ function getLetterGrade(average) {
 function calculateWhatIfScore() {
     const slider = document.getElementById('remaining-weight');
     const sliderValue = document.getElementById('remaining-weight-value');
-    const resultElement.textContent = remainingWeight.toFixed(0);
-
+    const resultElement = document.getElementById('what-if-result');
     const remainingWeight = toNumber(slider.value);
     sliderValue.textContent = remainingWeight.toFixed(0);
 
     if (entries.length === 0) {
-        resultElement.textContent = remainingWeight.toFixed(0);
+        resultElement.textContent = 'Add some entries to calculate.';
         return;
     }
 
     const { average: currentAverage, totalWeight: currentWeight } = calculateWeightedAverage();
 
     if (currentWeight === 0) {
-        resultElement.textContent = 'Current weight is 0. Add weights greater than you';
+        resultElement.textContent = 'Current weight is 0. Add weights greater than 0';
         return;
     }
 
@@ -214,14 +214,15 @@ function calculateWhatIfScore() {
     const neededScore = (targetGrade * totalWeightWithRemaining - currentWeightedSum) / remainingWeight;
 
     if (neededScore > 100) {
-        resultElement.textContent = `You need ${neededScore.toFixed(2)}% (imposible - over 100%). An A may not be achievable.`;
-        resultElement.style.backgroundColor = '#ffccc'
+        resultElement.textContent = `You need ${neededScore.toFixed(2)}% (impossible - over 100%). An A may not be achievable.`;
+        resultElement.style.backgroundColor = '#ffcccc'
     } else if (neededScore <= 0) {
         resultElement.textContent = `You already have an A! You can score as low as 0% and still maintain it.`;
+        resultElement.style.backgroundColor = '#ccffcc';
     } else {
-        
+        resultElement.textContent = `You need ${neededScore.toFixed(2)}% on the remaining ${remainingWeight}% weighted section to get an A (90%)`;
+        resultElement.style.backgroundColor = '#ffffcc';
     }
 }
 
 document.getElementById('add-entry-button').addEventListener('click', handleFormSubmit);
-
