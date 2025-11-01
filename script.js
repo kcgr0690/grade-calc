@@ -160,7 +160,10 @@ function renderEntries() {
     delBtn.textContent = 'Delete';
     delBtn.dataset.id = entry.id;
     delBtn.addEventListener('click', () => {
-        deleteEntryById(entry.id);
+        const confirmed = confirm(`Are you sure you want to delete "${entry.name}"?`);
+        if (confirmed) {
+            deleteEntryById(entry.id);
+        }
     });
     tdActions.appendChild(delBtn);
     tr.appendChild(tdActions);
