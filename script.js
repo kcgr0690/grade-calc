@@ -12,6 +12,7 @@ function deleteEntryById(id) {
 
 const entries = [];
 let nextId = 1;
+let editingId = null;
 
 function addEntryFromForm() {
     const nameInput = document.getElementById('assignment-name');
@@ -100,6 +101,13 @@ function renderEntries() {
     tr.appendChild(tdWeight);
 
     const tdActions = document.createElement('td');
+    const editBtn = document.createElement('td');
+    editBtn.type = 'button';
+    editBtn.textContent = 'Edit';
+    editBtn.dataset.id = entry.id;
+    editBtn.addEventListener('click', () => {
+        
+    })
     const delBtn = document.createElement('button');
     delBtn.type = 'button';
     delBtn.textContent = 'Delete';
