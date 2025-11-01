@@ -226,5 +226,5 @@ function calculateWhatIfScore() {
 }
 
 document.getElementById('add-entry-button').addEventListener('click', handleFormSubmit);
-document.getElementById('remaining-weight').addEventListener('input', calculateWhatIfScore());
+document.getElementById('remaining-weight').addEventListener('input', calculateWhatIfScore);
 window.addEventListener('load', calculateWhatIfScore);
