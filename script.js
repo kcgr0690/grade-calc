@@ -253,10 +253,10 @@ function calculateWhatIfScore() {
         resultElement.textContent = `You need ${neededScore.toFixed(2)}% (impossible - over 100%). A ${targetLetter} may not be achievable.${weightWarning}`;
         resultElement.style.backgroundColor = '#ffcccc'
     } else if (neededScore <= 0) {
-        resultElement.textContent = `You already have an ${targetLetter}! You can score as low as 0% and still maintain it.${weightWarning}`;
+        resultElement.textContent = `You already have a ${targetLetter}! You can score as low as 0% and still maintain it.${weightWarning}`;
         resultElement.style.backgroundColor = '#ccffcc';
     } else {
-        resultElement.textContent = `You need at least an ${neededScore.toFixed(2)}% on the remaining ${remainingWeight}% weighted section to get an ${targetLetter}.${weightWarning}`;
+        resultElement.textContent = `You need at least an ${neededScore.toFixed(2)}% on the remaining ${remainingWeight}% weighted section to get a ${targetLetter}.${weightWarning}`;
         resultElement.style.backgroundColor = '#ffffcc';
     }
 }
