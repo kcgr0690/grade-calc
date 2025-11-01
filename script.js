@@ -206,6 +206,21 @@ function calculateWhatIfScore() {
         resultElement.textContent = 'Slide to set a remaining assignment weight.';
         return;
     }
+
+    const targetGrade = 90;
+    const currentWeightedSum = currentAverage * currentWeight;
+    const totalWeightWithRemaining = currentWeight + remainingWeight;
+
+    const neededScore = (targetGrade * totalWeightWithRemaining - currentWeightedSum) / remainingWeight;
+
+    if (neededScore > 100) {
+        resultElement.textContent = `You need ${neededScore.toFixed(2)}% (imposible - over 100%). An A may not be achievable.`;
+        resultElement.style.backgroundColor = '#ffccc'
+    } else if (neededScore <= 0) {
+        resultElement.textContent = `You already have an A! You can score as low as 0% and still maintain it.`;
+    } else {
+        
+    }
 }
 
 document.getElementById('add-entry-button').addEventListener('click', handleFormSubmit);
