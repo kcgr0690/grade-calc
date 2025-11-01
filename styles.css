@@ -123,6 +123,7 @@ table#entries-table button[edit] {
     background-color: #8CACEF;
     color: #2D4CA3;
     margin-right: 30px;
+    margin-bottom: 30px;
     border-radius: 20px;
     padding: 5px 10px;
     border: 1px solid #2D4CA3;
@@ -160,6 +161,7 @@ input[type=text] {
 }
 
 #grade-scale-arrow {
+    margin-top: 30px;
     font-size: 0.8em;
     transition: transform 0.3s;
 }
