@@ -76,6 +76,16 @@ table#entries-table th, table#entries-table td {
     padding: 5px;
 }
 
+table#entries-table button {
+    padding: 5px 10px;
+    background-color: #8CACEF;
+    color: royalblue;
+    border: 1px solid royalblue;
+    border-radius: 4px;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
+
 table#entries-table th:first-child {
     border-top-left-radius: 8px;
 }
@@ -108,3 +118,4 @@ table#entries-table tbody tr:last-child td:last-child {
     font-size: 1.2em;
     font-weight: bold;
 }
+

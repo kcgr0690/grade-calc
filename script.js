@@ -69,7 +69,9 @@ function updateResults() {
     }
 
     const avgRounded = Number(average).toFixed(2);
+
     const letter = getLetterGrade(average);
+
     out.textContent = `${avgRounded} (${letter})`;
 }
 
@@ -151,3 +153,4 @@ function getLetterGrade(average) {
 }
 
 document.getElementById('add-entry-button').addEventListener('click', addEntryFromForm);
+
