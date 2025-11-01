@@ -122,15 +122,18 @@ table#entries-table tbody tr:last-child td:last-child {
 table#entries-table button[edit] {
     background-color: #8CACEF;
     color: #2D4CA3;
-    margin-right: 5px;
+    margin-right: 30px;
     border-radius: 20px;
     padding: 5px 10px;
     border: 1px solid #2D4CA3;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-right: 10px;
 }
 
 table#entries-table button[edit]:hover {
     background-color: #6A8DE6;
+}
+
+input[type=text] {
+    background-color: #A6C2F3;
 }
