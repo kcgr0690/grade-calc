@@ -37,15 +37,27 @@ function handleFormSubmit() {
 
     if (!Number.isFinite(weight) || weight < 0 || weight > 100) {
         alert('Please enter a valid weight (0-100).')
+        weightInput.focus();
         return;
     }
 
-    entries.push({
-        id: nextId++,
-        name,
-        score,
-        weight
-    });
+    if (editingId !== null) {
+        const entryToUpdate = entries.find(e=> e.id === editingId);
+        if (entryToUpdate) {
+            entryToUpdate.name = name;
+            entryToUpdate.score = score;
+            entryToUpdate.weight = weight;
+        }
+        editingId = null;
+        document.getElementById('add-entry-button').textContent = 'Add Entry';
+    } else {
+        entries.push({
+            id:nextId++,
+            name,
+            score,
+            weight
+        })
+    }
 
     nameInput.value = '';
     scoreInput.value = '';
@@ -169,5 +181,5 @@ function getLetterGrade(average) {
     return 'F';
 }
 
-document.getElementById('add-entry-button').addEventListener('click', addEntryFromForm);
+document.getElementById('add-entry-button').addEventListener('click', handleFormSubmit);
 

@@ -118,3 +118,13 @@ table#entries-table tbody tr:last-child td:last-child {
     font-size: 1.2em;
     font-weight: bold;
 }
+
+table#entries-table button[edit] {
+    background-color: #8CACEF;
+    color: #2D4CA3;
+    margin-right: 5px;
+}
+
+table#entries-table button[edit]:hover {
+    background-color: #8CACEF;
+}
