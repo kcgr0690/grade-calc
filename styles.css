@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
@@ -142,7 +142,7 @@ input[type=text] {
     max-width: 500px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #6A8DE6;
+    background-color: #8CACEF;
     border-radius: 8px;
     border: 2px solid #2D4CA3;
 }
