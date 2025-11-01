@@ -84,6 +84,27 @@ table#entries-table th:last-child {
     border-top-right-radius: 8px;
 }
 
+table#entries-table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 8px;
+}
+
 table#entries-table tbody tr:last-child td:last-child {
     border-bottom-right-radius: 8px;
+}
+
+#grade-scale {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#grade-scale ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#result {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
 }
