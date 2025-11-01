@@ -154,3 +154,12 @@ input[type=text] {
     color:#1F387A;
 }
 
+#grade-scare-header:hover {
+    color:#1F387A;
+    text-decoration: underline;
+}
+
+#grade-scale-arrow {
+    font-size: 0.8em;
+    transition: transform 0.3s;
+}
