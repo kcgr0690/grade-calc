@@ -10,6 +10,22 @@ function deleteEntryById(id) {
     }
 }
 
+function clearAllEntries() {
+    if (entries.length === 0) {
+        alert('No entries to clear.');
+        return;
+    }
+
+    const confirmed = confirm(`Are you sure you want to delete all ${entries.length} entries? This cannot be undone.`)
+
+    if (confirmed) {
+        entries.length = 0;
+        nextId = 1;
+        renderEntries();
+        alert('All entries have been cleared.');
+    }
+}
+
 const entries = [];
 let nextId = 1;
 let editingId = null;
@@ -241,3 +257,5 @@ document.getElementById('grade-scale-header').addEventListener('click', function
         arrow.textContent = '▼';
     }
 })
+
+document.getElementById('clear-all-button').addEventListener('click', clearAllEntries)
