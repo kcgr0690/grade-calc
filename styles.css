@@ -3,7 +3,7 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: lightblue;
+    background-color: #BFD7F7;
     color: black;
 }
 
@@ -13,7 +13,7 @@ header {
 }
 
 header h1 {
-    color: midnightblue;
+    color: #1F387A;
 }
 
 section {
@@ -22,7 +22,7 @@ section {
 
 h2 {
     text-align: center;
-    color:deepskyblue;
+    color:#2D4CA3;
 }
 
 form#entry-form {
@@ -35,6 +35,8 @@ form#entry-form label {
     margin-top: 10px;
     font-weight: bold;
 }
+
+
 
 form#entry-form input {
     display: block;
@@ -50,7 +52,7 @@ form#entry-form button {
     display: block;
     margin-top: 10px;
     padding: 8px 12px;
-    background-color: lightblue;
+    background-color: #8CACEF;
     color: black;
     border: 1px solid black;
     cursor: pointer;
@@ -76,4 +78,12 @@ table#entries-table th, table#entries-table td {
 
 table#entries-table th:first-child {
     border-top-left-radius: 8px;
+}
+
+table#entries-table th:last-child {
+    border-top-right-radius: 8px;
+}
+
+table#entries-table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 8px;
 }
