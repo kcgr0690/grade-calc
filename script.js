@@ -14,7 +14,7 @@ const entries = [];
 let nextId = 1;
 let editingId = null;
 
-function addEntryFromForm() {
+function handleFormSubmit() {
     const nameInput = document.getElementById('assignment-name');
     const scoreInput = document.getElementById('score');
     const weightInput = document.getElementById('weight');
@@ -106,8 +106,17 @@ function renderEntries() {
     editBtn.textContent = 'Edit';
     editBtn.dataset.id = entry.id;
     editBtn.addEventListener('click', () => {
-        
-    })
+        editingId = entry.id;
+        const entryToEdit = entries.find(e => e.id === editingId);
+        if (entryToEdit) {
+            document.getElementById('assignment-name').value = entryToEdit.name;
+            document.getElementById('score').value = entryToEdit.score;
+            document.getElementById('weight').value = entryToEdit.weight;
+            document.getElementById('add-entry-button').textContent = 'Update Entry';
+        }
+    });
+    tdActions.appendChild(editBtn);
+
     const delBtn = document.createElement('button');
     delBtn.type = 'button';
     delBtn.textContent = 'Delete';
