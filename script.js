@@ -247,7 +247,6 @@ function calculateWhatIfScore() {
         ? ` Note: Total weight would be ${totalWeightWithRemaining.toFixed(2)}% (under 100%).`
         : '';
 
-
     const targetLetter = getLetterGrade(targetGrade);
     if (neededScore > 100) {
         resultElement.textContent = `You need ${neededScore.toFixed(2)}% (impossible - over 100%). A ${targetLetter} may not be achievable.${weightWarning}`;
@@ -258,6 +257,7 @@ function calculateWhatIfScore() {
     } else {
         resultElement.textContent = `You need at least an ${neededScore.toFixed(2)}% on the remaining ${remainingWeight}% weighted section to get a ${targetLetter}.${weightWarning}`;
         resultElement.style.backgroundColor = '#ffffcc';
+
     }
 }
 
